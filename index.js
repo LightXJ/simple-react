@@ -22,16 +22,17 @@ function createElement( tag, attrs, ...children ) {
 function renderComponent(component){
   let base;
   let renderer = component.render();
-  if( component.base && component.ComponentWillUpdate ){
-    component.ComponentWillUpdate();
+  if( component.base && component.componentWillUpdate ){
+    component.componentWillUpdate();
   }
   base = _render( renderer );
+  // 这里有问题，下次setState时才会触发这些方法
   if( component.base ){
-    if( component.ComponentDidUpdate ){
-      component.ComponentDidUpdate();
+    if( component.componentDidUpdate ){
+      component.componentDidUpdate();
     }
-    if( component.ComponentDidMount ){
-      component.ComponentDidMount();
+    if( component.componentDidMount ){
+      component.componentDidMount();
     }
   }
   if ( component.base && component.base.parentNode ) {
@@ -154,16 +155,16 @@ function Welcome(props){
 }
 
 class Hello extends React.Component {
-  ComponentWillUpdate(){
-    console.log('ComponentWillUpdate');
+  componentWillUpdate(){
+    console.log('componentWillUpdate');
   }
 
-  ComponentDidUpdate(){
-    console.log('ComponentDidUpdate');
+  componentDidUpdate(){
+    console.log('componentDidUpdate');
   }
 
-  ComponentDidMount(){
-    console.log('ComponentDidMount');
+  componentDidMount(){
+    console.log('componentDidMount');
   }
 
   render() {
@@ -179,12 +180,21 @@ class Counter extends React.Component {
       }
   }
 
+  componentDidUpdate(){
+    console.log('componentDidUpdate');
+  }
+
+  componentDidMount(){
+    console.log('componentDidMount');
+  }
+
+
   componentWillUpdate() {
-      console.log( 'update' );
+      console.log( 'willUpdate' );
   }
 
   componentWillMount() {
-      console.log( 'mount' );
+      console.log( 'willMount' );
   }
 
   onClick() {
