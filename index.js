@@ -26,6 +26,8 @@ function renderComponent(component){
     component.componentWillUpdate();
   }
   base = diffNode( component.base, renderer );
+  component.base = base;
+  base._component = component;
   if( component.base ){
     if( component.componentDidUpdate ){
       component.componentDidUpdate();
