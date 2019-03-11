@@ -1,5 +1,5 @@
 import React from './react.js';
-import ReactDOM from './react-dom';
+import ReactDOM from './react-dom/index.js';
 
 function Welcome(props) {
   return React.createElement(
