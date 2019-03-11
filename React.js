@@ -1,3 +1,5 @@
+import { renderComponent } from '../react-dom/diff'
+
 class Component {
   constructor( props = {} ) {
     this.state = {};
@@ -15,27 +17,6 @@ function createElement( tag, attrs, ...children ) {
       attrs,
       children
   }
-}
-
-function renderComponent(component){
-  let base;
-  let renderer = component.render();
-  if( component.base && component.componentWillUpdate ){
-    component.componentWillUpdate();
-  }
-  base = diffNode( component.base, renderer );
-  if( component.base ){
-    if( component.componentDidUpdate ){
-      component.componentDidUpdate();
-    }
-  }else if( component.componentDidMount ){
-    component.componentDidMount();
-  }
-  if ( component.base && component.base.parentNode ) {
-    component.base.parentNode.replaceChild( base, component.base );
-  }
-  component.base = base;
-  base._component = component;
 }
 
 
