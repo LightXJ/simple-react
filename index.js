@@ -1,4 +1,4 @@
-import React from './react';
+import React from './react.js';
 import ReactDOM from './react-dom';
 
 function Welcome(props){

@@ -1,4 +1,4 @@
-import { diff } from './diff'
+import { diff } from './diff.js'
 
 function _render( vnode, container ) {
 

@@ -1,5 +1,4 @@
-import { Componet } from '../react'
-import { setAttribute } from './dom'
+import { setAttribute } from './dom.js'
 
 /**
  * @param {HTMLElement} dom 真实DOM

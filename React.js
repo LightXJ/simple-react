@@ -1,4 +1,4 @@
-import { renderComponent } from '../react-dom/diff'
+import { renderComponent } from '../react-dom/diff.js'
 
 class Component {
   constructor( props = {} ) {
