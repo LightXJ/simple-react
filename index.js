@@ -1,5 +1,5 @@
 import React from './react.js';
-import ReactDOM from './react-dom';
+import ReactDOM from './react-dom/index.js';
 
 function Welcome(props){
   return <h1>welcome, {props.name}</h1>;
@@ -37,6 +37,16 @@ class Counter extends React.Component {
 
   componentDidMount(){
     console.log('componentDidMount');
+    // for(let i =0; i< 50; i++){
+    //   this.setState({num: this.state.num+1 });
+    // }
+    for(let j=0; j<50; j++){
+      this.setState(prevState=>{
+        return {
+          num: prevState.num+1
+        }
+      });
+    }
   }
 
 
